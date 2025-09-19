@@ -8,3 +8,4 @@ arxiv
 tavily-python
 langchain-google-genai
 streamlit
+pysqlite3-binary
