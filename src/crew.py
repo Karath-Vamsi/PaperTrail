@@ -31,7 +31,7 @@ class ResearchCrew:
             agents=[researcher, analyst, writer],
             tasks=[research_task, analysis_task, writing_task],
             process=Process.sequential,
-            verbose=2
+            verbose=True
         )
 
         # Run the crew

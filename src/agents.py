@@ -1,7 +1,8 @@
 # agents.py
 from crewai import Agent
 from langchain_openai import ChatOpenAI
-from tools import ArxivSearchTool, DuckDuckGoSearchTool
+from langchain_google_genai import ChatGoogleGenerativeAI
+from tools import ArxivSearchTool, TavilyTool
 import os
 from dotenv import load_dotenv
 
@@ -9,12 +10,11 @@ load_dotenv()
 
 # Initialize the language model
 llm = ChatOpenAI(
-        base_url="https://openrouter.ai/api/v1",
-        api_key=os.getenv("OPENROUTER_API_KEY"),
-        model="openai/gpt-4.1-nano", # this is not free, make limited calls per day
-        temperature=0.5,
-        max_tokens=750
-    )
+    api_key=os.getenv("GEMINI_API_KEY"),
+    model="gemini/gemini-1.5-flash",
+    temperature=0.5,
+    max_tokens=750
+)
 
 class ResearchAgents:
     """
@@ -32,7 +32,7 @@ class ResearchAgents:
                 " and impactful research papers and articles from various online sources."
                 " You are an expert in using search tools to find information."
             ),
-            tools=[DuckDuckGoSearchTool(), ArxivSearchTool()],
+            tools=[TavilyTool, ArxivSearchTool],
             llm=llm,
             verbose=True,
             allow_delegation=False

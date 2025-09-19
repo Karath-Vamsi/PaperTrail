@@ -1,17 +1,11 @@
 # tools.py
-from crewai_tools import tool
-from langchain_community.tools import ArxivQueryRun, DuckDuckGoSearchRun
+import os
+from dotenv import load_dotenv
+from crewai_tools import ArxivPaperTool, TavilySearchTool
 
-@tool('DuckDuckGoSearch')
-def DuckDuckGoSearchTool():
-    """
-    A tool for searching the web using DuckDuckGo.
-    """
-    return DuckDuckGoSearchRun()
+# Load environment variables at the top of the file
+load_dotenv()
 
-@tool('ArxivSearch')
-def ArxivSearchTool():
-    """
-    A tool for searching for academic papers on Arxiv.
-    """
-    return ArxivQueryRun()
+# Instantiate the tools directly
+TavilyTool = TavilySearchTool()
+ArxivSearchTool = ArxivPaperTool()

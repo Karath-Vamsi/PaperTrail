@@ -22,4 +22,4 @@ A multi-agent research automation system built with **CrewAI**, **LangChain**, a
 | Retrieval Layer  | LangChain + Vector Store (e.g. FAISS / Chroma) |
 | LLM Backend      | OpenAI GPT / Claude / Mistral   |
 | Data Sources     | Arxiv, Semantic Scholar, Web Search |
-| Output Format    | Markdown                        |
+| Output Format    | Markdown                        |  
